@@ -209,13 +209,16 @@ def checkUser(username, password):
 * Returns the user's username and role if valid, otherwise None.
 
 #### Routes
+
+##### Home Route
 ```python
 @app.route("/", methods=["GET"])
 def firstRoute():
     return render_template("register.html")
 ```
 * Renders the registration/login page when accessing the root URL.
-  
+
+##### Login Route
 ```python
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -248,6 +251,7 @@ def login():
     * Stores the token in cookies.
 * Renders the registration page for GET requests or invalid login attempts.
 
+##### Logout Route
 ```python
 @app.route("/logout")
 def logout():
@@ -257,6 +261,7 @@ def logout():
 ```
 * Placeholder route to handle logout functionality.
 
+##### Books Route
 ```python
 @app.route("/books", methods=["GET"])
 @jwt_required()
@@ -270,6 +275,7 @@ def getBooks():
 * Requires a valid JWT token.
 * Displays the list of books for authenticated users.
 
+##### Add Book Route
 ```python
 @app.route("/addbook", methods=["GET", "POST"])
 @jwt_required()
@@ -294,6 +300,7 @@ def addBook():
 * GET: Renders a form to add a book.
 * POST: Adds a new book to the books list.
 
+##### Add Image Route
 ```python
 @app.route("/addimage", methods=["GET", "POST"])
 @jwt_required()
@@ -330,11 +337,21 @@ if __name__ == "__main__":
 <a class="anchor" id="Web_App_Index"></a>
 #### 3.2.1 Web App Index
 
+##### HTML Boilerplate and Bootstrap Integration
 ```html
 <!doctype html>
 <html>
     <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+```
+* The <!doctype html> specifies that the document is an HTML5 document.
+* The <link> element imports Bootstrap 4 for responsive design and styling.
+* The href specifies the Bootstrap CDN URL.
+* The integrity attribute ensures the file's integrity and security.
+* The crossorigin attribute enables secure cross-origin resource sharing.
+
+
+```html
     <head>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#">My Books Site</a>
