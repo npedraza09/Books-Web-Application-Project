@@ -448,10 +448,10 @@ if __name__ == "__main__":
 * method="POST": Specifies the HTTP POST method, used for sending login data securely.
 * action="/login": Specifies the Flask route /login (defined in app.py) to handle form submissions.
 
+
 <img width="800" height="300" alt="Screenshot 2025-01-15 at 4 09 14 PM" src="https://github.com/user-attachments/assets/4bf43b14-732a-4da5-8f8a-5626ea6223fc" />
 
 Home screen/ Registration.
-
 
 <img width="800" height="300" alt="Screenshot 2025-01-15 at 4 09 21 PM" src="https://github.com/user-attachments/assets/2d72c702-d3d8-43fb-811b-540c663a463f" />
 
@@ -482,6 +482,7 @@ Login successful.
 * The script loops through the books data and renders each book's details dynamically.
 * Uses Bootstrap classes (list-group and list-group-item) for clean and responsive styling.
 * Relies on the index.html structure and Flask's data-passing mechanisms for functionality.
+
 
 <img width="800" height="500" alt="Screenshot 2025-01-15 at 4 09 39 PM" src="https://github.com/user-attachments/assets/a604f32b-3740-4b05-aeed-5f3a17fe1d3a" />
 
@@ -518,6 +519,7 @@ Books list display.
 * Ease of Maintenance:
     * The script is simple and modular, focusing solely on the "Add a Book" functionality.
     * Backend changes to the /addbook route do not require modifications to the template.
+
 
 <img width="800" height="400" alt="Screenshot 2025-01-15 at 4 10 01 PM" src="https://github.com/user-attachments/assets/46d25adb-ff8f-4ed0-9ed3-890719d0d9d3" />
 
@@ -572,7 +574,8 @@ User without a valid role to add books.
     * Using enctype="multipart/form-data" ensures proper handling of uploaded files.
     * The /addimage route requires JWT authentication and admin privileges, as defined in app.py.
 
-<img width="800" height="400" alt="Screenshot 2025-01-15 at 4 10 16 PM" src="https://github.com/user-attachments/assets/9f9cfe8c-a346-4fcf-b450-81760f76e006" />
+
+<img width="800" height="350" alt="Screenshot 2025-01-15 at 4 10 16 PM" src="https://github.com/user-attachments/assets/9f9cfe8c-a346-4fcf-b450-81760f76e006" />
 
 Add an image for a book based on user role.
 
