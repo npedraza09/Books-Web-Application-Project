@@ -15,6 +15,7 @@
         -  [3.2.2 Registration](#Registration)
         -  [3.2.3 Book Display](#Book_Display)
         -  [3.2.4 Adding Books](#Adding_Books)
+        -  [3.2.5 Adding Images](#Adding_Images)
 - [Conclusion](#Conclusion)
 - [References](#References)
 
@@ -61,11 +62,11 @@ The static folder does not have much to it other than the images in png format f
     * app.py (python file for integration and construction of web application)
 
  * Templates:
-     * index.html
-     * register.html
-     * books.html
-     * addimage.html
-     * addbook.html
+     * index.html (parent template for main interface of the web app)
+     * register.html (child template inside index.html for registration purposes)
+     * books.html (child template for book description and image display)
+     * addimage.html (child template to add an image to the database)
+     * addbook.html (child template to add a book to the database)
 
 * Static:
     * imageN.png (image file number N in png format)
@@ -350,7 +351,7 @@ if __name__ == "__main__":
 * The integrity attribute ensures the file's integrity and security.
 * The crossorigin attribute enables secure cross-origin resource sharing.
 
-
+##### Head Section
 ```html
     <head>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -370,7 +371,7 @@ if __name__ == "__main__":
                   <a class="nav-link" href="{{'/addbook'}}">Add Book</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link disabled" href="{{'/addimage'}}">Add Image</a>
+                  <a class="nav-link" href="{{'/addimage'}}">Add Image</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link disabled" href="#">Delete Book(Disabled)</a>
@@ -379,6 +380,18 @@ if __name__ == "__main__":
             </div>
           </nav>          
     </head>
+```
+* Navigation Bar:
+    * The <nav> element uses Bootstrap's navbar component for a responsive menu bar.
+    * Navbar Brand: <a class="navbar-brand"> specifies the brand name or logo (here, "My Books Site").
+    * Toggle Button: Used in smaller screens to show/hide the menu items. The data-target links to the menu's ID (#navbarNav).
+* Menu Items:
+    * <ul class="navbar-nav"> creates a list of menu items.
+    * Each <li> represents a menu item.
+    * The href attributes use Jinja2 template syntax ({{}}) to generate dynamic links for Flask routes.
+
+##### Body Section
+```html
     <body>
         <div class="p-3 border bg-light">
             {%if username %}
@@ -391,9 +404,122 @@ if __name__ == "__main__":
     </body>
 </html>
 ```
+* Main Container:
+    * <div class="p-3 border bg-light">: A light-colored box with padding and a border, styled using Bootstrap utility classes.
+* Dynamic Welcome Message:
+    * {% if username %}: Jinja2 syntax checks if a username variable is available (passed from Flask).
+    * If a user is logged in, it displays Welcome {{username}}.
+* Content Block:
+    * <div id="content">: Placeholder for page-specific content.
+    * {% block content %}{% endblock %}: Template block for extending or overriding content in child templates.
 
 
+[Back to top](#Index)
+
+<a class="anchor" id="Registration"></a>
+#### 3.2.2 Registration
+
+##### Template Inheritance
+```html
+{% extends "index.html"%}
+```
+* This line indicates that the current HTML file extends (inherits) the index.html template.
+* The index.html file serves as a base layout with shared structure (like the navigation bar and main container). This child template focuses only on defining the specific content for the content block.
+
+##### Block Content
+```html
+{% block content %}
+<h1> Use "testuser" for username and password</h1>
+<form method="POST" action="/login">
+    UserName <input type="text" name="username" />
+    <br>
+    Password <input type="text" name="password" />
+    <br>
+    <input type="submit">
+  </form>
+{% endblock %}
+```
+* Overrides the content block placeholder defined in index.html.
+* Everything between {% block content %} and {% endblock %} is injected into the content section of the base template.
+* Creates a form for user authentication.
+* method="POST": Specifies the HTTP POST method, used for sending login data securely.
+* action="/login": Specifies the Flask route /login (defined in app.py) to handle form submissions.
 
 
+[Back to top](#Index)
+
+<a class="anchor" id="Book_Display"></a>
+#### 3.2.3 Book Display
+
+```html
+{% extends "index.html"%}
+{%block content %}
+    <ul class="list-group">
+    {% for book in books %}
+        <li class="list-group-item">
+            <img src="static/image{{book['id']}}.png" width="50"> 
+            {{book['author']}},	
+            {{book['title']}},
+            {{book['country']}},
+            {{book['language']}},
+            {{book['year']}}
+        </li>
+    {% endfor %}
+    </ul>
+```
+* The script loops through the books data and renders each book's details dynamically.
+* Uses Bootstrap classes (list-group and list-group-item) for clean and responsive styling.
+* Relies on the index.html structure and Flask's data-passing mechanisms for functionality.
 
 
+[Back to top](#Index)
+
+<a class="anchor" id="Adding_Books"></a>
+#### 3.2.4 Adding Books 
+
+```html
+{% extends "index.html"%}
+
+{% block content %}
+<h1> Add a book</h1>
+<form method="POST" action="/addbook">
+    author <input type="text" name="author" />
+    <br>
+    title <input type="text" name="title" />
+    <br>
+    <input type="submit">
+  </form>
+{% endblock %}
+```
+
+
+[Back to top](#Index)
+
+<a class="anchor" id="Adding_Images"></a>
+#### 3.2.5 Adding Images
+
+```html
+{% extends "index.html"%}
+{%block content %}
+    <div class='container'>
+        <div class='row'>
+            <div class='col'>
+                <h1>Upload Image</h1> <br>
+
+                <form action="/addimage" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label>Select image</label>
+                        <div class="custom-file">
+                            <input type="file" class = "custom-file-input" name="image" id="image">
+                            <label class="custom-file-label" for="image">Select image...</label>
+                            <input type="number" class="form-control" aria-label="Book Number" name="number" id="number">
+                            <label  for="number">Enter Book Number...</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-lg btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{%endblock%}
+```
