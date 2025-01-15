@@ -449,13 +449,13 @@ if __name__ == "__main__":
 * action="/login": Specifies the Flask route /login (defined in app.py) to handle form submissions.
 
 
+Home screen/ Registration:
+
 <img width="800" height="300" alt="Screenshot 2025-01-15 at 4 09 14 PM" src="https://github.com/user-attachments/assets/4bf43b14-732a-4da5-8f8a-5626ea6223fc" />
 
-Home screen/ Registration.
+Login successful:
 
 <img width="800" height="300" alt="Screenshot 2025-01-15 at 4 09 21 PM" src="https://github.com/user-attachments/assets/2d72c702-d3d8-43fb-811b-540c663a463f" />
-
-Login successful.
 
 
 [Back to top](#Index)
@@ -484,9 +484,9 @@ Login successful.
 * Relies on the index.html structure and Flask's data-passing mechanisms for functionality.
 
 
-<img width="800" height="500" alt="Screenshot 2025-01-15 at 4 09 39 PM" src="https://github.com/user-attachments/assets/a604f32b-3740-4b05-aeed-5f3a17fe1d3a" />
+Books list display:
 
-Books list display.
+<img width="800" height="500" alt="Screenshot 2025-01-15 at 4 09 39 PM" src="https://github.com/user-attachments/assets/a604f32b-3740-4b05-aeed-5f3a17fe1d3a" />
 
 
 [Back to top](#Index)
@@ -521,14 +521,13 @@ Books list display.
     * Backend changes to the /addbook route do not require modifications to the template.
 
 
+Add a book based on user role:
+
 <img width="800" height="400" alt="Screenshot 2025-01-15 at 4 10 01 PM" src="https://github.com/user-attachments/assets/46d25adb-ff8f-4ed0-9ed3-890719d0d9d3" />
 
-Add a book based on user role.
-
+User without a valid role to add books:
 
 <img width="800" height="400" alt="image" src="https://github.com/user-attachments/assets/bfe16531-0b8f-475f-beb5-582974f77cc6" />
-
-User without a valid role to add books.
 
 
 [Back to top](#Index)
@@ -575,9 +574,9 @@ User without a valid role to add books.
     * The /addimage route requires JWT authentication and admin privileges, as defined in app.py.
 
 
-<img width="800" height="350" alt="Screenshot 2025-01-15 at 4 10 16 PM" src="https://github.com/user-attachments/assets/9f9cfe8c-a346-4fcf-b450-81760f76e006" />
+Add an image for a book based on user role:
 
-Add an image for a book based on user role.
+<img width="800" height="350" alt="Screenshot 2025-01-15 at 4 10 16 PM" src="https://github.com/user-attachments/assets/9f9cfe8c-a346-4fcf-b450-81760f76e006" />
 
 
 [Back to top](#Index)
