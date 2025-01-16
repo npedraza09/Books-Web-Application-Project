@@ -6,7 +6,7 @@
 - [Abstract](#Abstract)
 - [1. Introduction](#Introduction)
 - [2. Structure](#Structure)
-    - [2.1 Folders](#Folders)
+    - [2.1 Repositories](#Repositories)
     - [2.2 Files](#Files)
 - [3. Script](#Script)
     - [3.1 Application](#App)
@@ -42,8 +42,8 @@ This application’s architecture is designed for scalability and maintainabilit
 <a class="anchor" id="Structure"></a>
 ## 2. Structure
 
-<a class="anchor" id="Folders"></a>
-### 2.1 Folders
+<a class="anchor" id="Repositories"></a>
+### 2.1 Repositories
 
 #### 1. Application
 
