@@ -395,17 +395,18 @@ if __name__ == "__main__":
 
 ##### Body Section
 ```html
-    <body>
-        <div class="p-3 border bg-light">
-            {%if username %}
-                <h1> Welcome {{username}}</h1>
-            {%endif%}
-            <div id="content">
-            {%block content %}{%endblock%}
-            </div>
+<body>
+    <div class="p-3 border bg-light">
+        {% if username %}
+            <h1>Welcome {{ username }}</h1>
+        {% endif %}
+        <div id="content">
+            {{ content }}
         </div>
-    </body>
+    </div>
+</body>
 </html>
+
 ```
 * Main Container:
     * <div class="p-3 border bg-light">: A light-colored box with padding and a border, styled using Bootstrap utility classes.
@@ -414,7 +415,7 @@ if __name__ == "__main__":
     * If a user is logged in, it displays Welcome {{username}}.
 * Content Block:
     * <div id="content">: Placeholder for page-specific content.
-    * {% block content %}{% endblock %}: Template block for extending or overriding content in child templates.
+    * {% block content %}{% endblock %}: shown as {{content}} is a template block for extending or overriding content in child templates.
 
 
 [Back to top](#Index)
