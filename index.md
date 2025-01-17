@@ -415,7 +415,7 @@ if __name__ == "__main__":
     * If a user is logged in, it displays Welcome {{username}}.
 * Content Block:
     * <div id="content">: Placeholder for page-specific content.
-    * {% block content %}{% endblock %}: shown as {{content}} is a template block for extending or overriding content in child templates.
+    * {{ content }}: Template block for extending or overriding content in child templates.
 
 
 [Back to top](#Index)
@@ -432,7 +432,7 @@ if __name__ == "__main__":
 
 ##### Block Content
 ```html
-{% block content %}
+{{ content }}
 <h1> Use "testuser" for username and password</h1>
 <form method="POST" action="/login">
     UserName <input type="text" name="username" />
@@ -441,7 +441,7 @@ if __name__ == "__main__":
     <br>
     <input type="submit">
   </form>
-{% endblock %}
+{{ content }}
 ```
 * Overrides the content block placeholder defined in index.html.
 * Everything between {% block content %} and {% endblock %} is injected into the content section of the base template.
@@ -466,7 +466,7 @@ Login successful:
 
 ```html
 {% extends "index.html"%}
-{%block content %}
+{{ content }}
     <ul class="list-group">
     {% for book in books %}
         <li class="list-group-item">
@@ -498,7 +498,7 @@ Books list display:
 ```html
 {% extends "index.html"%}
 
-{% block content %}
+{{ content }}
 <h1> Add a book</h1>
 <form method="POST" action="/addbook">
     author <input type="text" name="author" />
@@ -507,7 +507,7 @@ Books list display:
     <br>
     <input type="submit">
   </form>
-{% endblock %}
+{{ content }}
 ```
 * Tightly integrated with the Flask backend.
 * The /addbook route in app.py:
@@ -538,7 +538,7 @@ User without a valid role to add books:
 
 ```html
 {% extends "index.html"%}
-{%block content %}
+{{ content }}
     <div class='container'>
         <div class='row'>
             <div class='col'>
@@ -559,7 +559,7 @@ User without a valid role to add books:
             </div>
         </div>
     </div>
-{%endblock%}
+{{ content }}
 ```
 * The backend processes the uploaded image and saves it in the static directory with a unique name based on the provided book number.
 * Responsive Design:
