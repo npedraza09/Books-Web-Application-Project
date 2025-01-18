@@ -424,9 +424,9 @@ if __name__ == "__main__":
 #### 3.2.2 Registration
 
 ##### Template Inheritance
-```html
+
 {% extends "index.html"%}
-```
+
 * This line indicates that the current HTML file extends (inherits) the index.html template.
 * The index.html file serves as a base layout with shared structure (like the navigation bar and main container). This child template focuses only on defining the specific content for the content block.
 
