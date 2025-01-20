@@ -386,10 +386,10 @@ if __name__ == "__main__":
 ```
 * Navigation Bar:
     * The <nav> element uses Bootstrap's navbar component for a responsive menu bar.
-    * Navbar Brand: <a class="navbar-brand"> specifies the brand name or logo (here, "My Books Site").
+    * Navbar Brand: ```<a class="navbar-brand">``` specifies the brand name or logo (here, "My Books Site").
     * Toggle Button: Used in smaller screens to show/hide the menu items. The data-target links to the menu's ID (#navbarNav).
 * Menu Items:
-    * <ul class="navbar-nav"> creates a list of menu items.
+    * ```<ul class="navbar-nav">``` creates a list of menu items.
     * Each <li> represents a menu item.
     * The href attributes use Jinja2 template syntax ({{}}) to generate dynamic links for Flask routes.
 
@@ -397,25 +397,29 @@ if __name__ == "__main__":
 ```html
 <body>
     <div class="p-3 border bg-light">
+```
+---
+-
         {% if username %}
             <h1>Welcome {{ username }}</h1>
         {% endif %}
+ ---       
+```html        
         <div id="content">
             {{ content }}
         </div>
     </div>
 </body>
 </html>
-
 ```
 * Main Container:
     * ```html <div class="p-3 border bg-light"> ```: A light-colored box with padding and a border, styled using Bootstrap utility classes.
 * Dynamic Welcome Message:
-    * {{ if username }}: Jinja2 syntax checks if a username variable is available (passed from Flask).
+    * if username: Jinja2 syntax checks if a username variable is available (passed from Flask).
     * If a user is logged in, it displays Welcome {{username}}.
 * Content Block:
-    * <div id="content">: Placeholder for page-specific content.
-    * {{ content }}: Template block for extending or overriding content in child templates.
+    * ```<div id="content">```: Placeholder for page-specific content.
+    * content: Template block for extending or overriding content in child templates.
 
 
 [Back to top](#Index)
@@ -424,15 +428,17 @@ if __name__ == "__main__":
 #### 3.2.2 Registration
 
 ##### Template Inheritance
-```html
+---
  {{ extends "index.html"}} 
-```
+---
 * This line indicates that the current HTML file extends (inherits) the index.html template.
 * The index.html file serves as a base layout with shared structure (like the navigation bar and main container). This child template focuses only on defining the specific content for the content block.
 
 ##### Block Content
-```html
+---
 {{ content }}
+---
+```html
 <h1> Use "testuser" for username and password</h1>
 <form method="POST" action="/login">
     UserName <input type="text" name="username" />
@@ -441,8 +447,10 @@ if __name__ == "__main__":
     <br>
     <input type="submit">
   </form>
-{{ content }}
 ```
+---
+{{ content }}
+---
 * Overrides the content block placeholder defined in index.html.
 * Everything between {{ content }} is injected into the content section of the base template.
 * Creates a form for user authentication.
@@ -463,11 +471,15 @@ Login successful:
 
 <a class="anchor" id="Book_Display"></a>
 #### 3.2.3 Book Display
-
-```html
+---
 {{ extends "index.html" }}
 {{ content }}
+---
+```html
     <ul class="list-group">
+```
+---
+-
     {% for book in books %}
         <li class="list-group-item">
             <img src="static/image{{book['id']}}.png" width="50"> 
@@ -478,6 +490,8 @@ Login successful:
             {{book['year']}}
         </li>
     {% endfor %}
+---    
+```html
     </ul>
 ```
 * The script loops through the books data and renders each book's details dynamically.
@@ -494,11 +508,12 @@ Books list display:
 
 <a class="anchor" id="Adding_Books"></a>
 #### 3.2.4 Adding Books 
-
-```html
+---
 {{ extends "index.html" }}
 
 {{ content }}
+---
+```html
 <h1> Add a book</h1>
 <form method="POST" action="/addbook">
     author <input type="text" name="author" />
@@ -507,8 +522,10 @@ Books list display:
     <br>
     <input type="submit">
   </form>
-{{ content }}
 ```
+---
+{{ content }}
+---
 * Tightly integrated with the Flask backend.
 * The /addbook route in app.py:
     * Processes the submitted data.
@@ -535,10 +552,11 @@ User without a valid role to add books:
 
 <a class="anchor" id="Adding_Images"></a>
 #### 3.2.5 Adding Images
-
-```html
+---
 {{ extends "index.html" }}
 {{ content }}
+---
+```html
     <div class='container'>
         <div class='row'>
             <div class='col'>
@@ -559,8 +577,10 @@ User without a valid role to add books:
             </div>
         </div>
     </div>
-{{ content }}
 ```
+---
+{{ content }}
+---
 * The backend processes the uploaded image and saves it in the static directory with a unique name based on the provided book number.
 * Responsive Design:
     * The script uses Bootstrap classes (container, row, col, form-group) to ensure a user-friendly, responsive layout.
