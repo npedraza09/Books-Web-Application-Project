@@ -409,7 +409,7 @@ if __name__ == "__main__":
 
 ```
 * Main Container:
-    * <div class="p-3 border bg-light">: A light-colored box with padding and a border, styled using Bootstrap utility classes.
+    * ```html <div class="p-3 border bg-light"> ```: A light-colored box with padding and a border, styled using Bootstrap utility classes.
 * Dynamic Welcome Message:
     * {{ if username }}: Jinja2 syntax checks if a username variable is available (passed from Flask).
     * If a user is logged in, it displays Welcome {{username}}.
