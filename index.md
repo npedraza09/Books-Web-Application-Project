@@ -352,7 +352,7 @@ if __name__ == "__main__":
 * The <link> element imports Bootstrap 4 for responsive design and styling.
 * The href specifies the Bootstrap CDN URL.
 * The integrity attribute ensures the file's integrity and security.
-* The crossorigin attribute enables secure cross-origin resource sharing.
+* The cross-origin attribute enables secure cross-origin resource sharing.
 
 ##### Head Section
 ```html
