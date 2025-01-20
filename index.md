@@ -424,9 +424,9 @@ if __name__ == "__main__":
 #### 3.2.2 Registration
 
 ##### Template Inheritance
-
+```html
  {{ extends "index.html"}} 
-
+```
 * This line indicates that the current HTML file extends (inherits) the index.html template.
 * The index.html file serves as a base layout with shared structure (like the navigation bar and main container). This child template focuses only on defining the specific content for the content block.
 
@@ -465,7 +465,7 @@ Login successful:
 #### 3.2.3 Book Display
 
 ```html
-{% extends "index.html"%}
+{{ extends "index.html" }}
 {{ content }}
     <ul class="list-group">
     {% for book in books %}
@@ -496,7 +496,7 @@ Books list display:
 #### 3.2.4 Adding Books 
 
 ```html
-{% extends "index.html"%}
+{{ extends "index.html" }}
 
 {{ content }}
 <h1> Add a book</h1>
@@ -537,7 +537,7 @@ User without a valid role to add books:
 #### 3.2.5 Adding Images
 
 ```html
-{% extends "index.html"%}
+{{ extends "index.html" }}
 {{ content }}
     <div class='container'>
         <div class='row'>
