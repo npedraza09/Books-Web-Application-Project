@@ -444,7 +444,7 @@ if __name__ == "__main__":
 {{ content }}
 ```
 * Overrides the content block placeholder defined in index.html.
-* Everything between {% block content %} and {% endblock %} is injected into the content section of the base template.
+* Everything between {{ content }} is injected into the content section of the base template.
 * Creates a form for user authentication.
 * method="POST": Specifies the HTTP POST method, used for sending login data securely.
 * action="/login": Specifies the Flask route /login (defined in app.py) to handle form submissions.
