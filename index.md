@@ -606,3 +606,9 @@ Add an image for a book based on user role:
 ## 4. Conclusion
 
 The Books Web Application successfully integrates cutting-edge web technologies to create a secure, user-friendly platform for managing book collections. Its modular design ensures scalability and adaptability, while features like JWT-based authentication and image uploads demonstrate its comprehensive functionality. By prioritizing security, responsiveness, and maintainability, this project highlights the potential of Flask and Bootstrap to deliver high-quality web solutions. It serves as a foundation for future enhancements, offering opportunities to expand into more advanced features like search capabilities, display, real-time updates, and personalized recommendations.
+
+### Tools:
+* Python
+* JSON
+* HTML
+* Libraries: Flask, Bootstrap, flask_jwt_extended, functools, and os
