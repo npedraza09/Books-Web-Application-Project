@@ -1,6 +1,6 @@
 <a href="https://npedraza09.github.io">Back to My Portfolio</a>
 
-# Books Web Application
+# 📚 Books Web Application
 
 The Books Web Application project is a dynamic platform designed for managing a collection of books, offering users the ability to browse, add, and organize books alongside their corresponding images. Built using Flask as the back-end framework and Bootstrap for the front-end, the application incorporates authentication and authorization protocols via JSON Web Tokens (JWTs) to ensure secure and role-based access. The modular structure includes a Python-based core application, HTML templates for dynamic rendering, and a static folder for image storage, providing a user-friendly and extendable solution for book collection management.
 
